@@ -1,0 +1,21 @@
+﻿
+@model VehicleListVM
+
+
+
+@foreach (var vehicle_ in Model.Vehicles)
+{
+    <h4>@vehicle_.VinNo</h4>
+    <h2>@vehicle_.Brand</h2>
+    <h3>@vehicle_.Model</h3>
+    <hr />
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@vehicle_.ImageUrl" alt="VehicleImage">
+        <div class="card-body">
+            <h5 class="card-title">@(vehicle_.Brand + " " + vehicle_.Model + " - " + vehicle_.ModelYear)</h5>
+            <p class="card-text">@(vehicle_.VehicleClass.Name+" - "+ vehicle_.VehicleClass.Description)</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+    </div>
+}
+
