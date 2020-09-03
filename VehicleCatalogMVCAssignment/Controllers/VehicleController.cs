@@ -30,5 +30,12 @@ namespace VehicleCatalogMVCAssignment.Controllers
             };
             return View(vehicleListVM);
         }
+
+        public IActionResult Details(int id)
+        {
+            var vehicle = _vehicleRepo.GetVehicleByVinNo(id);
+            return View(vehicle);
+        }
+
     }
 }

@@ -1,0 +1,22 @@
+﻿
+
+@model Vehicle
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src=@Model.ImageUrl class="card-img" alt=@Model.Brand>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title">@Model.Brand</h3>
+                <h4 class="card-title">@Model.Model</h4>
+                <p class="card-text">@Model.ModelYear</p>
+                <p class="card-text"><small class="text-muted">@Model.VehicleClass.Name</small></p>
+                <p class="card-text"><small class="text-muted">@Model.VehicleClass.Description</small></p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+

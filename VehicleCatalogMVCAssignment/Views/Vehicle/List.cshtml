@@ -12,9 +12,10 @@
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="@vehicle_.ImageUrl" alt="VehicleImage">
         <div class="card-body">
-            <h5 class="card-title">@(vehicle_.Brand + " " + vehicle_.Model + " - " + vehicle_.ModelYear)</h5>
+            <h5 class="card-title">@(vehicle_.Brand + " " + vehicle_.Model )</h5>
             <p class="card-text">@(vehicle_.VehicleClass.Name+" - "+ vehicle_.VehicleClass.Description)</p>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
+            <a asp-controller="Vehicle" asp-action ="Details" asp-route-id ="@vehicle_.VinNo"
+               class="btn btn-primary">Vehicle  Details</a>
         </div>
     </div>
 }

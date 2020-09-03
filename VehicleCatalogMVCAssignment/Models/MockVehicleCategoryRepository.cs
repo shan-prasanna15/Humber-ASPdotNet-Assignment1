@@ -28,7 +28,7 @@ namespace VehicleCatalogMVCAssignment.Models
             },
             new VehicleCategory
             {
-                ClassId = 3,
+                ClassId = 4,
                 Name = "Hatchback",
                 Description = "5 Door short versions of Wagons with fun filled driving characteristics"
             },
