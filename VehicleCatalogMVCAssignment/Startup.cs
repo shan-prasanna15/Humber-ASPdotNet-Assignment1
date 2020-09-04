@@ -30,6 +30,9 @@ namespace VehicleCatalogMVCAssignment
             services.AddScoped<IVehicleCategoryRepository, EFVehicleCategoryRepository>();
             services.AddScoped<IVehicleRepository, EFVehicleRepository>();
             services.AddControllersWithViews();
+            services.AddScoped<ShoppingCart>(s => ShoppingCart.GetShoppingCart(s));
+            services.AddHttpContextAccessor();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +45,8 @@ namespace VehicleCatalogMVCAssignment
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

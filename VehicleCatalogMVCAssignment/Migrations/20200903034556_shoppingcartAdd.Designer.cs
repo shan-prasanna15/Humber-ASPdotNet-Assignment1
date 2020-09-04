@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VehicleCatalogMVCAssignment.Models;
 
 namespace VehicleCatalogMVCAssignment.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200903034556_shoppingcartAdd")]
+    partial class shoppingcartAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace VehicleCatalogMVCAssignment.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.ShoppingCartItem", b =>
+            modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.ShoppingCartItme", b =>
                 {
                     b.Property<string>("ShoppingCartId")
                         .HasColumnType("nvarchar(450)");
@@ -46,9 +48,6 @@ namespace VehicleCatalogMVCAssignment.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
@@ -93,7 +92,7 @@ namespace VehicleCatalogMVCAssignment.Migrations
                     b.ToTable("VehicleCategories");
                 });
 
-            modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.ShoppingCartItem", b =>
+            modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.ShoppingCartItme", b =>
                 {
                     b.HasOne("VehicleCatalogMVCAssignment.Models.Vehicle", "Vehicle")
                         .WithMany()

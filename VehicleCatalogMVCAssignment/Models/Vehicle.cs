@@ -16,6 +16,7 @@ namespace VehicleCatalogMVCAssignment.Models
         public int ModelYear { get; set; }
         public string ImageUrl { get; set; }
         public bool IsAutomaticTransmission { get; set; }
+        public decimal Amount { get; set; }
 
         public VehicleCategory VehicleClass { get; set; }
     }

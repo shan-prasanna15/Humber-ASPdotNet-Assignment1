@@ -15,5 +15,6 @@ namespace VehicleCatalogMVCAssignment.Models
 
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<VehicleCategory> VehicleCategories { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

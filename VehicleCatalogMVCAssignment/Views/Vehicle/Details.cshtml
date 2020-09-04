@@ -11,10 +11,14 @@
             <div class="card-body">
                 <h3 class="card-title">@Model.Brand</h3>
                 <h4 class="card-title">@Model.Model</h4>
-                <p class="card-text">@Model.ModelYear</p>
+                <h5 class="card-title">@Model.Amount</h5>
+                <h6 class="card-text">@Model.ModelYear</h6>
                 <p class="card-text"><small class="text-muted">@Model.VehicleClass.Name</small></p>
                 <p class="card-text"><small class="text-muted">@Model.VehicleClass.Description</small></p>
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <a asp-controller="ShoppingCart"
+                   asp-action="AddToShoppingCart"
+                   asp-route-vinNo="@Model.VinNo"
+                   class="btn btn-primary">Add to Cart</a>
             </div>
         </div>
     </div>
