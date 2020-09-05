@@ -35,7 +35,7 @@ namespace VehicleCatalogMVCAssignment.Models
         public void AddItemToCart(Vehicle vehicle, decimal amount)
         {
             var ShoppingCartItem = _appContextDb.ShoppingCartItems.SingleOrDefault(
-                                    s => s.Vehicle.VinNo == vehicle.VinNo
+                                    s => s.Vehicle.VehicleID == vehicle.VehicleID
                                     && s.ShoppingCartId == this.ShoppingCartId
                                     );
             if(ShoppingCartItem == null)
@@ -49,13 +49,12 @@ namespace VehicleCatalogMVCAssignment.Models
                 _appContextDb.ShoppingCartItems.Add(ShoppingCartItem);                
             }
             _appContextDb.SaveChanges();
-
         }
 
         public void RemoveItemFromCart(Vehicle v)
         {
             var ShoppingCartItem = _appContextDb.ShoppingCartItems.SingleOrDefault(
-                s => s.Vehicle.VinNo == v.VinNo
+                s => s.Vehicle.VehicleID == v.VehicleID
                 &&
                 s.ShoppingCartId == this.ShoppingCartId
             );

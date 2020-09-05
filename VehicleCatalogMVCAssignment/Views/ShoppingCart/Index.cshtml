@@ -11,10 +11,16 @@
 
     @foreach (var item in Model.ShoppingCartItems)
     {
-        <tr>
-            <td class="text-left"> @(item.Vehicle.Model +" "+ item.Vehicle.Brand)</td>
-            <td class="text-left"> @item.Amount</td>
-        </tr>
+    <tr>
+        <td class="text-left"> @(item.Vehicle.Model +" "+ item.Vehicle.Brand)</td>
+        <td class="text-left"> @item.Amount</td>
+        <td>
+            <a asp-controller="ShoppingCart"
+               asp-action="RemoveItemFromCart"
+               asp-route-vinNo="@item.Vehicle"
+               class="btn btn-primary">Remove</a>
+        </td>
+    </tr>
     }
 
     <tr>

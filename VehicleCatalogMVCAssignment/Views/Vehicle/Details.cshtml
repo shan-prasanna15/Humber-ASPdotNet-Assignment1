@@ -17,7 +17,7 @@
                 <p class="card-text"><small class="text-muted">@Model.VehicleClass.Description</small></p>
                 <a asp-controller="ShoppingCart"
                    asp-action="AddToShoppingCart"
-                   asp-route-vinNo="@Model.VinNo"
+                   asp-route-vinNo="@Model.VehicleID"
                    class="btn btn-primary">Add to Cart</a>
             </div>
         </div>

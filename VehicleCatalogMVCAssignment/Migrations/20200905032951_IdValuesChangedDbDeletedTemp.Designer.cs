@@ -10,8 +10,8 @@ using VehicleCatalogMVCAssignment.Models;
 namespace VehicleCatalogMVCAssignment.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20200903000655_DatabaseSetup")]
-    partial class DatabaseSetup
+    [Migration("20200905032951_IdValuesChangedDbDeletedTemp")]
+    partial class IdValuesChangedDbDeletedTemp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,12 +21,38 @@ namespace VehicleCatalogMVCAssignment.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.Vehicle", b =>
+            modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.ShoppingCartItem", b =>
                 {
-                    b.Property<int>("VinNo")
+                    b.Property<int>("ShoppingCartItemID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("VehicleID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ShoppingCartItemID");
+
+                    b.HasIndex("VehicleID");
+
+                    b.ToTable("ShoppingCartItems");
+                });
+
+            modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.Vehicle", b =>
+                {
+                    b.Property<int>("VehicleID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
@@ -43,19 +69,22 @@ namespace VehicleCatalogMVCAssignment.Migrations
                     b.Property<int>("ModelYear")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehicleClassClassId")
+                    b.Property<int?>("VehicleClassVehicleCategoryID")
                         .HasColumnType("int");
 
-                    b.HasKey("VinNo");
+                    b.Property<int>("VinNo")
+                        .HasColumnType("int");
 
-                    b.HasIndex("VehicleClassClassId");
+                    b.HasKey("VehicleID");
+
+                    b.HasIndex("VehicleClassVehicleCategoryID");
 
                     b.ToTable("Vehicles");
                 });
 
             modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.VehicleCategory", b =>
                 {
-                    b.Property<int>("ClassId")
+                    b.Property<int>("VehicleCategoryID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -66,16 +95,23 @@ namespace VehicleCatalogMVCAssignment.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ClassId");
+                    b.HasKey("VehicleCategoryID");
 
                     b.ToTable("VehicleCategories");
+                });
+
+            modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.ShoppingCartItem", b =>
+                {
+                    b.HasOne("VehicleCatalogMVCAssignment.Models.Vehicle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleID");
                 });
 
             modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.Vehicle", b =>
                 {
                     b.HasOne("VehicleCatalogMVCAssignment.Models.VehicleCategory", "VehicleClass")
                         .WithMany("Vehicles")
-                        .HasForeignKey("VehicleClassClassId");
+                        .HasForeignKey("VehicleClassVehicleCategoryID");
                 });
 #pragma warning restore 612, 618
         }

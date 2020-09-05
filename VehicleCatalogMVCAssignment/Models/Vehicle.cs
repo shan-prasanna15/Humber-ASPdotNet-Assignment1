@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace VehicleCatalogMVCAssignment.Models
 {
     public class Vehicle
-    {
-        [Key]
+    {        
+        public int VehicleID { get; set; }
         public int VinNo { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }

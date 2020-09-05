@@ -21,28 +21,30 @@ namespace VehicleCatalogMVCAssignment.Migrations
 
             modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.ShoppingCartItem", b =>
                 {
-                    b.Property<string>("ShoppingCartId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ShoppingCartItemID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ShoppingCartItemId")
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("VehicleID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehicleVinNo")
-                        .HasColumnType("int");
+                    b.HasKey("ShoppingCartItemID");
 
-                    b.HasKey("ShoppingCartId");
-
-                    b.HasIndex("VehicleVinNo");
+                    b.HasIndex("VehicleID");
 
                     b.ToTable("ShoppingCartItems");
                 });
 
             modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.Vehicle", b =>
                 {
-                    b.Property<int>("VinNo")
+                    b.Property<int>("VehicleID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -65,19 +67,22 @@ namespace VehicleCatalogMVCAssignment.Migrations
                     b.Property<int>("ModelYear")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehicleClassClassId")
+                    b.Property<int?>("VehicleClassVehicleCategoryID")
                         .HasColumnType("int");
 
-                    b.HasKey("VinNo");
+                    b.Property<int>("VinNo")
+                        .HasColumnType("int");
 
-                    b.HasIndex("VehicleClassClassId");
+                    b.HasKey("VehicleID");
+
+                    b.HasIndex("VehicleClassVehicleCategoryID");
 
                     b.ToTable("Vehicles");
                 });
 
             modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.VehicleCategory", b =>
                 {
-                    b.Property<int>("ClassId")
+                    b.Property<int>("VehicleCategoryID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -88,7 +93,7 @@ namespace VehicleCatalogMVCAssignment.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ClassId");
+                    b.HasKey("VehicleCategoryID");
 
                     b.ToTable("VehicleCategories");
                 });
@@ -97,14 +102,14 @@ namespace VehicleCatalogMVCAssignment.Migrations
                 {
                     b.HasOne("VehicleCatalogMVCAssignment.Models.Vehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehicleVinNo");
+                        .HasForeignKey("VehicleID");
                 });
 
             modelBuilder.Entity("VehicleCatalogMVCAssignment.Models.Vehicle", b =>
                 {
                     b.HasOne("VehicleCatalogMVCAssignment.Models.VehicleCategory", "VehicleClass")
                         .WithMany("Vehicles")
-                        .HasForeignKey("VehicleClassClassId");
+                        .HasForeignKey("VehicleClassVehicleCategoryID");
                 });
 #pragma warning restore 612, 618
         }
