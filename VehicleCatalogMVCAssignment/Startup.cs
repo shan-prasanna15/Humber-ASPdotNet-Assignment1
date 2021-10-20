@@ -54,7 +54,7 @@ namespace VehicleCatalogMVCAssignment
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    pattern: "{controller=Vehicle}/{action=list}/{id?}"
                     );
             });
         }

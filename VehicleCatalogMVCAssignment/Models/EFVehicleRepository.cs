@@ -24,9 +24,9 @@ namespace VehicleCatalogMVCAssignment.Models
 
         public IEnumerable<Vehicle> ManualTransmissionVehicles => throw new NotImplementedException();
 
-        public Vehicle GetVehicleByVinNo(int VinNo)
+        public Vehicle GetVehicleByVehicleId(int VehicleId)
         {
-            return appDBContext.Vehicles.Include(vc => vc.VehicleClass).FirstOrDefault(v => v.VinNo == VinNo);
+            return appDBContext.Vehicles.Include(vc => vc.VehicleClass).FirstOrDefault(v => v.VehicleID == VehicleId);
         }
     }
 }

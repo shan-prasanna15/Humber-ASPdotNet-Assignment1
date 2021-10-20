@@ -16,8 +16,8 @@
         <td class="text-left"> @item.Amount</td>
         <td>
             <a asp-controller="ShoppingCart"
-               asp-action="RemoveItemFromCart"
-               asp-route-vinNo="@item.Vehicle"
+               asp-action="RemoveFromShoppingCart"
+               asp-route-VehicleId="@item.Vehicle.VehicleID"
                class="btn btn-primary">Remove</a>
         </td>
     </tr>

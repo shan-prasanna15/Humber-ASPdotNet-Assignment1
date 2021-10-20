@@ -14,11 +14,14 @@
         <div class="card-body">
             <h5 class="card-title">@(vehicle_.Brand + " " + vehicle_.Model )</h5>
             <p class="card-text">@(vehicle_.VehicleClass.Name+" - "+ vehicle_.Amount)</p>
-            <a asp-controller="Vehicle" asp-action="Details" asp-route-id="@vehicle_.VinNo"
-               class="btn btn-primary">Vehicle  Details</a>
+
+            <a asp-controller="Vehicle"
+                   asp-action="Details"
+                   asp-route-vehicleid="@vehicle_.VehicleID"
+               class="btn btn-primary">View Details</a>            
             <a asp-controller="ShoppingCart"
                    asp-action="AddToShoppingCart"
-                   asp-route-vinNo="@vehicle_.VinNo"
+                   asp-route-vehicleid="@vehicle_.VehicleID"
                class="btn btn-primary">Add to Cart</a>
         </div>
     </div>

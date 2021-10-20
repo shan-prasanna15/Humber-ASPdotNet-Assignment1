@@ -24,16 +24,16 @@ namespace VehicleCatalogMVCAssignment.Controllers
             return View(_shoppingCart);
         }
 
-        public RedirectToActionResult AddToShoppingCart(int VinNo)
+        public RedirectToActionResult AddToShoppingCart(int VehicleId)
         {
-            var selectedVehicle = _vehicleRepository.GetVehicleByVinNo(VinNo);
+            var selectedVehicle = _vehicleRepository.GetVehicleByVehicleId(VehicleId);
             _shoppingCart.AddItemToCart(selectedVehicle, selectedVehicle.Amount);
             return RedirectToAction("Index");
         }
 
-        public RedirectToActionResult RemoveFromShoppingCart(int VinNo)
+        public IActionResult RemoveFromShoppingCart(int VehicleId)
         {
-             var selectedVehicle = _vehicleRepository.GetVehicleByVinNo(VinNo);
+             var selectedVehicle = _vehicleRepository.GetVehicleByVehicleId(VehicleId);
             _shoppingCart.RemoveItemFromCart(selectedVehicle);
             return RedirectToAction("Index");
         }

@@ -31,11 +31,10 @@ namespace VehicleCatalogMVCAssignment.Controllers
             return View(vehicleListVM);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int VehicleId)
         {
-            var vehicle = _vehicleRepo.GetVehicleByVinNo(id);
+            var vehicle = _vehicleRepo.GetVehicleByVehicleId(VehicleId);
             return View(vehicle);
         }
-
     }
 }

@@ -37,7 +37,7 @@ namespace VehicleCatalogMVCAssignment.Models
 
         public IEnumerable<Vehicle> ManualTransmissionVehicles { get; }        
 
-        public Vehicle GetVehicleByVinNo(int VinNo)
+        public Vehicle GetVehicleByVehicleId(int VinNo)
         {
             return GetAllVehicles.FirstOrDefault(v => v.VinNo == VinNo);
         }
