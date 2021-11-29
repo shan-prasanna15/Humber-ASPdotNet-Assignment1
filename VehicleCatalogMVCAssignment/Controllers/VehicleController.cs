@@ -21,8 +21,7 @@ namespace VehicleCatalogMVCAssignment.Controllers
         }
         
         public ViewResult List()
-        {
-            //return View(_vehicleRepo.GetAllVehicles);
+        {            
             VehicleListVM vehicleListVM = new VehicleListVM
             {
                 Vehicles = _vehicleRepo.GetAllVehicles,
@@ -31,10 +30,24 @@ namespace VehicleCatalogMVCAssignment.Controllers
             return View(vehicleListVM);
         }
 
-        public IActionResult Details(int id)
+        [Route("ShowVehicleDetails/{VinNo:int}")]
+        public ViewResult ShowVehicleDetails(int VinNo)
         {
-            var vehicle = _vehicleRepo.GetVehicleByVinNo(id);
+            Vehicle vehicle = _vehicleRepo.GetVehicleByVinNo(VinNo);
             return View(vehicle);
+        }
+
+        [Route("AddVehicle")]        
+        public ViewResult AddVehicle()
+        {
+            return View();
+        }
+
+        [Route("AddVehicle")]
+        [HttpPost]
+        public ViewResult AddVehicle(Vehicle vehicle)
+        {
+            return View();
         }
 
     }

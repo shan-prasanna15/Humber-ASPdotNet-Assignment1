@@ -1,0 +1,127 @@
+﻿@model VehicleCatalogMVCAssignment.Models.Vehicle
+@{
+    ViewBag.Title = "Add Vehicle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add Vehicle</h1>
+
+<form asp-controller="Vehicle" asp-action="AddVehicle">
+    <div class="form-group">
+        @Html.LabelFor(m => m.VinNo)
+        @Html.TextBoxFor(m => m.VinNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Brand)
+        @Html.TextBoxFor(m => m.Brand, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Model)
+        @Html.TextBoxFor(m => m.Model, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ModelYear)
+        @Html.TextBoxFor(m => m.ModelYear, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Amount)
+        @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageUrl)
+        @Html.TextBoxFor(m => m.ImageUrl, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.IsAutomaticTransmission)
+        @Html.CheckBoxFor(m => m.IsAutomaticTransmission, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.VehicleClass)
+        @Html.TextBoxFor(m => m.VehicleClass, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-primary" />
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddVehicle">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="VehicleID" class="control-label"></label>
+                    <input asp-for="VehicleID" class="form-control" />
+                    <span asp-validation-for="VehicleID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="VinNo" class="control-label"></label>
+                    <input asp-for="VinNo" class="form-control" />
+                    <span asp-validation-for="VinNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Brand" class="control-label"></label>
+                    <input asp-for="Brand" class="form-control" />
+                    <span asp-validation-for="Brand" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Model" class="control-label"></label>
+                    <input asp-for="Model" class="form-control" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ModelYear" class="control-label"></label>
+                    <input asp-for="ModelYear" class="form-control" />
+                    <span asp-validation-for="ModelYear" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageUrl" class="control-label"></label>
+                    <input asp-for="ImageUrl" class="form-control" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsAutomaticTransmission" /> @Html.DisplayNameFor(model => model.IsAutomaticTransmission)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Amount" class="control-label"></label>
+                    <input asp-for="Amount" class="form-control" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -3,24 +3,42 @@
 
 
 
-@foreach (var vehicle_ in Model.Vehicles)
+@foreach (var _vehicle in Model.Vehicles)
 {
-    <h4>@vehicle_.VinNo</h4>
-    <h2>@vehicle_.Brand</h2>
-    <h3>@vehicle_.Model</h3>
+    <h4>@_vehicle.VinNo</h4>
+    <h2>@_vehicle.Brand</h2>
+    <h3>@_vehicle.Model</h3>
     <hr />
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="@vehicle_.ImageUrl" alt="VehicleImage">
+        <img class="card-img-top" src="@_vehicle.ImageUrl" alt="VehicleImage">
         <div class="card-body">
-            <h5 class="card-title">@(vehicle_.Brand + " " + vehicle_.Model )</h5>
-            <p class="card-text">@(vehicle_.VehicleClass.Name+" - "+ vehicle_.Amount)</p>
-            <a asp-controller="Vehicle" asp-action="Details" asp-route-id="@vehicle_.VinNo"
+            <h5 class="card-title">@(_vehicle.Brand + " " + _vehicle.Model )</h5>
+            <p class="card-text">@(_vehicle.VehicleClass.Name+" - "+ _vehicle.Amount)</p>
+            <a asp-controller="Vehicle"
+               asp-action="ShowVehicleDetails"
+               asp-route-VinNo="@_vehicle.VinNo"
                class="btn btn-primary">Vehicle  Details</a>
             <a asp-controller="ShoppingCart"
-                   asp-action="AddToShoppingCart"
-                   asp-route-vinNo="@vehicle_.VinNo"
+               asp-action="AddToShoppingCart"
+               asp-route-VinNo="@_vehicle.VinNo"
                class="btn btn-primary">Add to Cart</a>
         </div>
     </div>
 }
+
+
+
+@*<a asp-controller="Test"
+   asp-action="ShowTestText1"
+   class="btn btn-primary">Test text 1</a>
+
+<a asp-controller="Test"
+   asp-action="ShowTestText2"
+   class="btn btn-primary">Test text 2</a>
+
+
+<a asp-controller="Test"
+   asp-action="ShowTestTextById"
+   asp-route-id="1"
+   class="btn btn-primary">Test text id 1</a>*@
 

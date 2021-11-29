@@ -17,8 +17,11 @@
                 <p class="card-text"><small class="text-muted">@Model.VehicleClass.Description</small></p>
                 <a asp-controller="ShoppingCart"
                    asp-action="AddToShoppingCart"
-                   asp-route-vinNo="@Model.VehicleID"
+                   asp-route-VinNo="@Model.VinNo"
                    class="btn btn-primary">Add to Cart</a>
+                <a asp-controller="Vehicle"
+                   asp-action="List"
+                   class="btn btn-primary">Vehicle  List</a>
             </div>
         </div>
     </div>
