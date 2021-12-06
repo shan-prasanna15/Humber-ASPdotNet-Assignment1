@@ -30,6 +30,12 @@ namespace VehicleCatalogMVCAssignment.Models
             }
         }
 
+        public void AddVehicle(Vehicle vehicle)
+        {
+            appDBContext.Add(vehicle);
+            appDBContext.SaveChanges();
+        }
+
         public Vehicle GetVehicleByVinNo(int VinNo)
         {
             return appDBContext.Vehicles.Include(vc => vc.VehicleClass).FirstOrDefault(v => v.VinNo == VinNo);

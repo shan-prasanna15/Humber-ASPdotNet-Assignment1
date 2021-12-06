@@ -25,7 +25,7 @@ namespace VehicleCatalogMVCAssignment.Controllers
             VehicleListVM vehicleListVM = new VehicleListVM
             {
                 Vehicles = _vehicleRepo.GetAllVehicles,
-                SelectedCategoryName = _vehicleCategoryRepo.GetAllCategories.ToList()[0].Name
+                //SelectedCategoryName = _vehicleCategoryRepo.GetAllCategories.ToList()[0].Name
             };
             return View(vehicleListVM);
         }
@@ -40,14 +40,18 @@ namespace VehicleCatalogMVCAssignment.Controllers
         [Route("AddVehicle")]        
         public ViewResult AddVehicle()
         {
+            List<VehicleCategory> vehicleCategories = new List<VehicleCategory>();
+            vehicleCategories = _vehicleCategoryRepo.GetAllCategories.ToList();
+            ViewBag.message = vehicleCategories;
             return View();
         }
 
         [Route("AddVehicle")]
         [HttpPost]
-        public ViewResult AddVehicle(Vehicle vehicle)
+        public RedirectToActionResult AddVehicle(Vehicle vehicle)
         {
-            return View();
+            _vehicleRepo.AddVehicle(vehicle);
+            return RedirectToAction("List");
         }
 
     }

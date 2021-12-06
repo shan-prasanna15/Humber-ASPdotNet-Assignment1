@@ -35,7 +35,12 @@ namespace VehicleCatalogMVCAssignment.Models
                 ImageUrl = "https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/1049x590/quality/80/https://s.aolcdn.com/os/ab/_cms/2020/05/05063544/land-rover-defender-james-bond-spectre-auction-16.jpg"}
         };
 
-        public IEnumerable<Vehicle> ManualTransmissionVehicles { get; }        
+        public IEnumerable<Vehicle> ManualTransmissionVehicles { get; }
+
+        public void AddVehicle(Vehicle vehicle)
+        {
+            throw new NotImplementedException();
+        }
 
         public Vehicle GetVehicleByVinNo(int VinNo)
         {

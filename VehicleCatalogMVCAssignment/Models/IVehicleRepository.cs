@@ -10,5 +10,7 @@ namespace VehicleCatalogMVCAssignment.Models
         IEnumerable<Vehicle> GetAllVehicles { get; }
         IEnumerable<Vehicle> ManualTransmissionVehicles { get; }
         Vehicle GetVehicleByVinNo(int VinNo);
+
+        void AddVehicle(Vehicle vehicle);
     }
 }
