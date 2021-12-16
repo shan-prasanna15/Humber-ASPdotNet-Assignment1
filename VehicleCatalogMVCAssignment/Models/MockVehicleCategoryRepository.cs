@@ -33,5 +33,10 @@ namespace VehicleCatalogMVCAssignment.Models
                 Description = "5 Door short versions of Wagons with fun filled driving characteristics"
             },
         };
+
+        public VehicleCategory GetVehicleCategoryById(int VehicleCategoryId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

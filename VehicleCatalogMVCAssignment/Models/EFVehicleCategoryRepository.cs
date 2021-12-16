@@ -21,5 +21,10 @@ namespace VehicleCatalogMVCAssignment.Models
                 return this.appDBContext.VehicleCategories;
             }
         }
+
+        public VehicleCategory GetVehicleCategoryById(int VehicleCategoryId) 
+        {         
+                return this.appDBContext.VehicleCategories.FirstOrDefault(x => x.VehicleCategoryID == VehicleCategoryId);         
+        }
     }
 }

@@ -8,5 +8,7 @@ namespace VehicleCatalogMVCAssignment.Models
     public interface IVehicleCategoryRepository
     {
         IEnumerable<VehicleCategory> GetAllCategories { get; }
+
+        VehicleCategory GetVehicleCategoryById(int VehicleCategoryId);
     }
 }

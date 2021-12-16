@@ -48,9 +48,10 @@ namespace VehicleCatalogMVCAssignment.Controllers
 
         [Route("AddVehicle")]
         [HttpPost]
-        public RedirectToActionResult AddVehicle(Vehicle vehicle)
-        {
-            _vehicleRepo.AddVehicle(vehicle);
+        public RedirectToActionResult AddVehicle(AddVehicleVM addVehicleVM)
+        {             
+            addVehicleVM.NewVehicle.VehicleClass = _vehicleCategoryRepo.GetVehicleCategoryById(addVehicleVM.SelectedCategory);
+            _vehicleRepo.AddVehicle(addVehicleVM.NewVehicle);
             return RedirectToAction("List");
         }
 
